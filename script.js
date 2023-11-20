@@ -29,6 +29,8 @@ const people = [
 // Array.prototype.filter()
 // 1. Filter the list of inventors for those who were born in the 1500's and return the filtered array
 export function myfilter() {
+	let result = inventors.filter((inventor) => inventor.year >= 1500 && inventor.year < 1600);
+	return result;
 
 }
 
@@ -36,6 +38,10 @@ export function myfilter() {
 // 2. Give us an array of the inventor first and last names (i.e. full name)
 // Ex: For the first inventor the full name will be 'Albert Einstein'
 export function map() {
+	let result = inventors.map((inventor) => {
+		${inventor.first} ${inventor.last}
+	};
+	return result;
 
 }
 
@@ -43,32 +49,49 @@ export function map() {
 // Array.prototype.sort()
 // 3. Sort the inventors by birthdate, oldest to youngest and return the sorted array
 export function sort() {
-
+	let result = inventors.sort((a,b) => a.year-b.year);
+	
 }
+return result;
 
 
 // Array.prototype.reduce()
 // 4. How many years did all the inventors live?
 // Return the total number of years all the inventors lived
 export function reduce() {
-
+	let result = inventors.reduce((acc,curr) => {
+		acc + (curr.passed - curr.year)
+	},0)
+	return result;
 }
 
 // 5. Sort the inventors by years lived and return the sorted array
 export function sortbylived() {
-
+	let result = inventors.sort((a,b) => b.passed - a.year);
+	return result;
 }
 
 // 6. sort Exercise
 // Sort the people alphabetically by last name and return the sorted array
 export function sortByLastName() {
+	const sortedPeople = [...people];
 
+    sortedPeople.sort((a, b) => {
+        const lastNameA = a.split(', ')[0];
+        const lastNameB = b.split(', ')[0];
+        return lastNameA.localeCompare(lastNameB);
+    });
+
+    return sortedPeople;
 }
-
 // 7. Reduce Exercise
 // Sum up the instances of each of these
 const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck', 'pogostick'];
 
 export function reducedSum() {
     // Return an object containing transports as key and its number of occurances as the key's value
+	const sum = data.reduce((acc,curr) => {
+		acc[data] = (acc[data] || 0) + 1;
+	})
+	return acc;
 }
